@@ -10,11 +10,11 @@ class PersegiPanjang {
             cout << "Masukkan lebar = ";
             cin >> lebar;
         }
-        double luas(){
-            return panjang * lebar;
+        double luas(double p, double l){
+            return p * l;
         }
         void tampil(){
-            cout << "Luas persegi panjang = " << this->luas() << endl;
+            cout << "Luas persegi panjang = " << this->luas(panjang, lebar) << endl;
         }
 };
 
@@ -25,11 +25,11 @@ class Lingkaran{
             cout << "Masukkan jari-jari = ";
             cin >> jejari;
         }
-        double luas(){
-            return 3.14 * jejari * jejari;
+        double luasLing(double r){
+            return 3.14 * r * r;
         }
         void tampilLing(){
-            cout << "Luas Lingkaran = " << this->luas() << endl;
+            cout << "Luas Lingkaran = " << this->luasLing(jejari) << endl;
         }
 };
 
@@ -42,20 +42,19 @@ class Segitiga{
             cout << "Masukkan tinggi = ";
             cin >> tinggi;
         }
-        double luas(){
-            return 0.5 * alas * tinggi;
+        double luasS3(double a, double t){
+            return 0.5 * a * t;
         }
         void tampilS3(){
-            cout << "Luas Segitiga = " << this->luas() << endl;
+            cout << "Luas Segitiga = " << this->luasS3(alas, tinggi) << endl;
         }
 };
 
 int main(){
     int pilih;
-    const int SIZE = 5;
-    PersegiPanjang pp[SIZE];
-    Lingkaran lk[SIZE];
-    Segitiga s3[SIZE];
+    PersegiPanjang pp;
+    Lingkaran lk;
+    Segitiga s3;
 
     cout << "Menu\n";
     cout << "-------------------------\n";
@@ -70,22 +69,16 @@ int main(){
 
     switch (pilih){
         case 1:
-            for(int i=0; i<SIZE; i++){
-                pp[i].sisiPP();
-                pp[i].tampil();
-            }
+            pp.sisiPP();
+            pp.tampil();
             break;
         case 2:
-            for(int i=0; i<SIZE; i++){
-                lk[i].jariLingkaran();
-                lk[i].tampilLing();
-            }
+            lk.jariLingkaran();
+            lk.tampilLing();
             break;
         case 3:
-            for(int i=0; i<SIZE; i++){
-                s3[i].sisiSegitiga();
-                s3[i].tampilS3();
-            }
+            s3.sisiSegitiga();
+            s3.tampilS3();
             break;
         case 4:
             return 0;
